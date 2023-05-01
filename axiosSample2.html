@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1) axios ile suppliers ları console da göster.
+
+    axios.get('https://northwind.vercel.app/api/suppliers')
+        .then(res => {
+            console.log('Data', res.data);
+            let suppliers = res.data;
+
+            //2) companyName "e" ile başlayan KAÇ ADET SUPPLIERS VAR?
+            let filteredSupplilers = suppliers.filter(q => q.companyName.toLowerCase().startsWith('e'))
+
+            console.log('filteredSupplilers', filteredSupplilers.length);
+
+            //3) country USA olan kaç adet suppliers var?
+
+            let filteredSupplilers2 = suppliers.filter(q => q.address?.country == 'USA');
+
+            console.log('filteredSupplilers2', filteredSupplilers.length);
+
+        })
+
+
+
+
+
+
+
+
+
+        //4) Supplier daki companyName leri li olarak göster. ülkesi ITALY olan supplier lar UPPER CASE OLARAK YAZSIN
+</script>
+
+</html>
